@@ -58,10 +58,25 @@ console.log(calculateLoanInterest(1000,.05,3));//log
 console.log(calculateLoanInterest(5000,.07,5));//log
 
 //Task 6- Higher order Functions
-function filterHighValueTransactions(transactions, filterFunction) {
-    return transactions.filter(filterFunction);
+function filterHighValueTransactions(transactions, filterFunction) {//declare function
+    return transactions.filter(filterFunction);//return value
 }
 
-let transactions = [500, 1200, 3000, 800, 2200];
+let transactions = [500, 1200, 3000, 800, 2200];//transaction data
 
-console.log(filterHighValueTransactions(transactions, amount => amount > 1000));
+console.log(filterHighValueTransactions(transactions, amount => amount > 1000));//log
+
+//Task 7- Closures
+function createBudgetTracker() {//DECLARE FUNCTION
+    let balance = 0;  // Initial balance 
+
+    return function(expense) {
+        balance -= expense;  // Subtract the expense from the balance
+        return `Current Balance: $${balance}`;
+    };
+}
+
+let budget = createBudgetTracker();
+
+console.log(budget(300));  //LOG
+console.log(budget(200)); 
