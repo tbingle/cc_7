@@ -30,3 +30,22 @@ let calculateLoyaltyDiscount= (amount,years)=>{
 }
 console.log(calculateLoyaltyDiscount(100,6));
 console.log(calculateLoyaltyDiscount(200,2));
+//Task 4- Shipping Cost
+function calculateShippingCost(weight,location,expedited=false){
+    let rates= {
+        USA:{base:5,perPound:.5},
+        Canada:{base: 10,perPound: .7},
+    };
+    let rate= rates[location]||{};
+    if (!rate.base){
+        return "Invalid location";
+    }
+    let cost = rate.base +(weight*rate.perPound);
+    if (expedited){
+        cost+=10;
+    }
+    return `Shipping Cost :$${cost.toFixed(2)}`;   
+}
+console.log(calculateShippingCost(10,"USA",true));
+console.log(calculateShippingCost(5,"Canada",false));
+
