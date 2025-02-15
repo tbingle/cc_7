@@ -16,7 +16,7 @@ console.log(calculateHourlyWage(52000, 40))//Log
 console.log(calculateHourlyWage(75000,35))//Log
 
 //Task 3- loyalty discount
-let calculateLoyaltyDiscount= (amount,years)=>{
+let calculateLoyaltyDiscount= (amount,years)=>{//declare discount
     let discount;
     if(years>=5){
         discount=.15;
@@ -26,15 +26,15 @@ let calculateLoyaltyDiscount= (amount,years)=>{
         discount=.05;
     }
     let discountedPrice=amount-(amount*discount);
-    return `Discounted Price $${discountedPrice.toFixed(2)}`
+    return `Discounted Price $${discountedPrice.toFixed(2)}`//return value
 }
-console.log(calculateLoyaltyDiscount(100,6));
-console.log(calculateLoyaltyDiscount(200,2));
+console.log(calculateLoyaltyDiscount(100,6));//log
+console.log(calculateLoyaltyDiscount(200,2));//log
 //Task 4- Shipping Cost
-function calculateShippingCost(weight,location,expedited=false){
+function calculateShippingCost(weight,location,expedited=false){//declare function
     let rates= {
-        USA:{base:5,perPound:.5},
-        Canada:{base: 10,perPound: .7},
+        USA:{base:5,perPound:.5},//shipping rates
+        Canada:{base: 10,perPound: .7},//shipping rates
     };
     let rate= rates[location]||{};
     if (!rate.base){
@@ -44,8 +44,24 @@ function calculateShippingCost(weight,location,expedited=false){
     if (expedited){
         cost+=10;
     }
-    return `Shipping Cost :$${cost.toFixed(2)}`;   
+    return `Shipping Cost :$${cost.toFixed(2)}`;   //return value 
 }
-console.log(calculateShippingCost(10,"USA",true));
-console.log(calculateShippingCost(5,"Canada",false));
+console.log(calculateShippingCost(10,"USA",true));//log
+console.log(calculateShippingCost(5,"Canada",false));//log
 
+//Task 5- Returning values
+function calculateLoanInterest(principal,rate,years) {//declare function
+    let interest = principal*rate*years;
+    return `Total Interest: $${interest.toFixed(2)}`;//return value
+}
+console.log(calculateLoanInterest(1000,.05,3));//log
+console.log(calculateLoanInterest(5000,.07,5));//log
+
+//Task 6- Higher order Functions
+function filterHighValueTransactions(transactions, filterFunction) {
+    return transactions.filter(filterFunction);
+}
+
+let transactions = [500, 1200, 3000, 800, 2200];
+
+console.log(filterHighValueTransactions(transactions, amount => amount > 1000));
