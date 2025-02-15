@@ -80,3 +80,19 @@ let budget = createBudgetTracker();
 
 console.log(budget(300));  //LOG
 console.log(budget(200)); 
+
+//Task 8-Recursion in Java
+function calculateGrowth(years, revenue) {
+    if (years === 0) {
+        return revenue;
+    }
+    revenue += revenue * 0.05;
+
+    return calculateGrowth(years - 1, revenue);
+}
+
+let result1 = calculateGrowth(8, 1000); 
+let result2 = calculateGrowth(5, 5000); 
+
+console.log(`Projected Revenue: $${result1.toFixed(2)}`);
+console.log(`Projected Revenue: $${result2.toFixed(2)}`);
